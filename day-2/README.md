@@ -1,3 +1,4 @@
+@@ -0,0 +1,49 @@
 # Day 2 Orientation
 
 ## Check Version of the Ember CLI

@@ -1,4 +1,5 @@
 @@ -0,0 +1,49 @@
+
 # Day 2 Orientation
 
 ## Check Version of the Ember CLI
@@ -45,6 +46,7 @@ After that, we can install the required packages.
 - `yarn install`
 - `pnpm install`- faster than npm and yarn
 
-## For add assets like images, fonts, etc. we can use the `public` folder.
+## For add assets like images, fonts, etc.
 
-- `public` folder is used to store the assets. It will be copied to the `dist` folder. So, we can access the assets from the `dist` folder.
+- For add assets like images, fonts, etc. we can use the `public` folder. After that, we can access the assets by using the `rootURL` property. For example, if we have an image named `logo.png` in the `public` folder, then we can access it by using the following URL:
+  - `http://localhost:4200/logo.png`

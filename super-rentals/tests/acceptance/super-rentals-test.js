@@ -34,6 +34,5 @@ module('Acceptance | super rentals', function (hooks) {
     assert.dom('a.button').hasText('About');
 
     await click('a.button');
-
   });
 });

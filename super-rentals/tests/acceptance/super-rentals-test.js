@@ -2,6 +2,22 @@ import { module, test } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'super-rentals/tests/helpers';
 
+module('Acceptance | super rentals : navigating using the navbar', function (hooks) {
+  setupApplicationTest(hooks);
+
+  test('should link to information about the company.', async function (assert) {
+    await visit('/');
+    await click(".menu-about");
+    assert.equal(currentURL(), '/about', 'should navigate to about');
+  });
+  test('should link to contact information.', async function (assert) {
+    await visit('/');
+    await click(".menu-contact");
+    assert.equal(currentURL(), '/getting-in-touch', 'should navigate to contact');
+  });
+
+});
+
 module('Acceptance | super rentals', function (hooks) {
   setupApplicationTest(hooks);
 
@@ -9,6 +25,8 @@ module('Acceptance | super rentals', function (hooks) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');
+    assert.dom('nav').exists();
+    assert.dom('nav .menu-index').hasText('SuperRentals');
     assert.dom('h2').hasText('Welcome to Super Rentals!');
 
     assert.dom('.jumbo a.button').hasText('About Us');
@@ -21,6 +39,8 @@ module('Acceptance | super rentals', function (hooks) {
     await visit('/about');
 
     assert.strictEqual(currentURL(), '/about');
+    assert.dom('nav').exists();
+    assert.dom('nav .menu-index').hasText('SuperRentals');
     assert.dom('h2').hasText('About Super Rentals');
 
     assert.dom('.jumbo a.button').hasText('Contact Us');
@@ -33,6 +53,8 @@ module('Acceptance | super rentals', function (hooks) {
     await visit('/getting-in-touch');
 
     assert.strictEqual(currentURL(), '/getting-in-touch');
+    assert.dom('nav').exists();
+    assert.dom('nav .menu-index').hasText('SuperRentals');
     assert.dom('h2').hasText('Contact Us');
 
     assert.dom('.jumbo a.button').hasText('About');

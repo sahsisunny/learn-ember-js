@@ -19,6 +19,8 @@ module('Acceptance | super rentals', function (hooks) {
 
   test('visiting /about', async function (assert) {
     await visit('/about');
+
+    assert.strictEqual(currentURL(), '/about');
     assert.dom('h2').hasText('About Super Rentals');
 
     assert.dom('.jumbo a.button').hasText('Contact Us');
@@ -27,12 +29,15 @@ module('Acceptance | super rentals', function (hooks) {
     assert.strictEqual(currentURL(), '/getting-in-touch');
   });
 
-  test('visiting /contact', async function (assert) {
+  test('visiting /getting-in-touch', async function (assert) {
     await visit('/getting-in-touch');
 
+    assert.strictEqual(currentURL(), '/getting-in-touch');
     assert.dom('h2').hasText('Contact Us');
-    assert.dom('a.button').hasText('About');
 
-    await click('a.button');
+    assert.dom('.jumbo a.button').hasText('About');
+    await click('.jumbo a.button');
+
+    assert.strictEqual(currentURL(), '/about');
   });
 });

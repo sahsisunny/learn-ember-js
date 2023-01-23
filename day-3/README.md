@@ -136,6 +136,24 @@ test("visiting /super-rentals", async function (assert) {
 - `currentURL` is a test helper function that is used to get the current URL. This function returns the current URL as a string.
 - `async` is a keyword that is used to mark a function as asynchronous. This keyword is used in conjunction with the `await` keyword.
 
-## For more information on QUnit
+Step 6: Run the tests
 
-- [QUnit API Documentation](https://api.qunitjs.com/)
+- `ember test --server` or `ember t -s`
+  - `test` or `t` is an option that is used to run the tests.
+  - `--server` or `-s` is an option that is used to run the tests in a server.
+
+After running the above command, you will see the following output in your terminal:
+
+```bash
+TEST'EM 'SCRIPTS!
+Open the URL below in a browser to connect.
+http://localhost:7357/
+--------------+
+     Chrome  |
+    4/4 v     |+----------------------------------------------------------------------------------------------------+
+
+
+
+✔ 4 tests complete.
+[Press ENTER to run tests; q to quit; p to pause]
+```

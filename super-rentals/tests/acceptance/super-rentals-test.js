@@ -2,21 +2,27 @@ import { module, test } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'super-rentals/tests/helpers';
 
-module('Acceptance | super rentals : navigating using the navbar', function (hooks) {
-  setupApplicationTest(hooks);
+module(
+  'Acceptance | super rentals : navigating using the navbar',
+  function (hooks) {
+    setupApplicationTest(hooks);
 
-  test('should link to information about the company.', async function (assert) {
-    await visit('/');
-    await click(".menu-about");
-    assert.equal(currentURL(), '/about', 'should navigate to about');
-  });
-  test('should link to contact information.', async function (assert) {
-    await visit('/');
-    await click(".menu-contact");
-    assert.equal(currentURL(), '/getting-in-touch', 'should navigate to contact');
-  });
-
-});
+    test('should link to information about the company.', async function (assert) {
+      await visit('/');
+      await click('.menu-about');
+      assert.deepEqual(currentURL(), '/about', 'should navigate to about');
+    });
+    test('should link to contact information.', async function (assert) {
+      await visit('/');
+      await click('.menu-contact');
+      assert.deepEqual(
+        currentURL(),
+        '/getting-in-touch',
+        'should navigate to contact'
+      );
+    });
+  }
+);
 
 module('Acceptance | super rentals', function (hooks) {
   setupApplicationTest(hooks);
